@@ -5,7 +5,7 @@ import { LoginNavigation } from "./LoginNavigation";
 const LoginForm = styled.form`
   background-color: ${props => props.theme.primaryColor};
   width: 40%;
-  margin: 0 auto;
+  margin: 15% auto;
   text-align: center;
   border-radius: 15px;
 
@@ -16,7 +16,7 @@ const LoginForm = styled.form`
   }
 
   div {
-    color: ${props => props.theme.fontColor};
+    color: ${props => props.theme.fontColorLight};
     margin: 5%;
     padding: 5%;
 
