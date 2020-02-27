@@ -1,4 +1,35 @@
 import React, { useState } from "react";
+import styled from "styled-components";
+import { LoginNavigation } from "./LoginNavigation";
+
+const LoginForm = styled.form`
+  background-color: ${props => props.theme.primaryColor};
+  width: 40%;
+  margin: 0 auto;
+  text-align: center;
+  border-radius: 15px;
+
+  button {
+    padding: 10px;
+    margin: 4% 0;
+    background: ${props => props.theme.secondaryColor};
+  }
+
+  div {
+    color: ${props => props.theme.fontColor};
+    margin: 5%;
+    padding: 5%;
+
+    label {
+      margin-right: 2%;
+    }
+
+    input {
+      padding: 1%;
+      border-radius: 5px;
+    }
+  }
+`;
 
 export const LoginPage = () => {
   const [cred, setCred] = useState({
@@ -16,23 +47,29 @@ export const LoginPage = () => {
   };
   return (
     <div>
-      <form onSubmit={submit}>
-        <label htmlFor="username">Username</label>
-        <input
-          type="text"
-          id="username"
-          name="username"
-          onChange={handleChanges}
-        />
-        <label htmlFor="password">Password</label>
-        <input
-          type="password"
-          id="password"
-          name="password"
-          onChange={handleChanges}
-        />
+      <LoginNavigation />
+      <LoginForm onSubmit={submit}>
+        <div>
+          <label htmlFor="username">Username</label>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            onChange={handleChanges}
+          />
+        </div>
+        <div>
+          <label htmlFor="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            onChange={handleChanges}
+          />
+        </div>
+
         <button>Login</button>
-      </form>
+      </LoginForm>
     </div>
   );
 };
