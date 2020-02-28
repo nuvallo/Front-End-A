@@ -37,6 +37,7 @@ export const LoginPage = () => {
     password: ""
   });
 
+  // Handlers
   const handleChanges = e => {
     setCred({ ...cred, [e.target.name]: e.target.value });
   };
