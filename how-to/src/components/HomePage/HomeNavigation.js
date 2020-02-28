@@ -5,13 +5,13 @@ import styled from "styled-components";
 // Styles
 const HomeNavbar = styled.nav`
   display: flex;
-  background: ${props => props.theme.secondaryColor};
+  background: ${props => props.theme.primaryColor};
 
   .brand-name {
     padding: 1%;
     text-decoration: none;
     font-size: 30px;
-    color: ${props => props.theme.primaryColor};
+    color: ${props => props.theme.secondaryColor};
     width: 100%;
   }
 
@@ -26,7 +26,7 @@ const HomeNavbar = styled.nav`
       margin: 2%;
 
       a {
-        color: ${props => props.theme.fontColorDark};
+        color: ${props => props.theme.fontColorLight};
         text-decoration: none;
       }
     }
