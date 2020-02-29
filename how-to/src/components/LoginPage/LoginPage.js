@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { axiosWithAuth } from "../../utils/axiosWithAuth";
 import { Navigation as Navbar } from "../Navbars/Navigation";
@@ -45,15 +46,12 @@ export const LoginPage = props => {
 
   const submit = e => {
     e.preventDefault();
-    e.preventDefault();
     axiosWithAuth()
-      .post("/api/users/login", cred)
+      .post("https://how-too.herokuapp.com/api/users/login", cred)
       .then(res => {
-        localStorage.setItem("token", res.data.payload);
         props.history.push("/protected");
       })
       .catch(err => {
-        localStorage.removeItem("token");
         console.log("invalid login ", err);
       });
   };
@@ -81,6 +79,8 @@ export const LoginPage = props => {
         </div>
 
         <button>Login</button>
+        {/* <Link to="/render-home">Login</Link> */}
+        {/* This LINK is a test (ignore until auth is setup) */}
       </LoginForm>
     </div>
   );

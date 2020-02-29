@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import logo from "../../Images/how-to_logo.png";
 import styled from "styled-components";
 
 // Styles
@@ -8,11 +9,14 @@ const LoginNavbar = styled.nav`
   background: ${props => props.theme.primaryColor};
 
   .brand-name {
-    padding: 1%;
     text-decoration: none;
     font-size: 30px;
     color: ${props => props.theme.secondaryColor};
     width: 100%;
+    margin-top: 1%;
+    .logo {
+      max-width: 80px;
+    }
   }
 
   ul {
@@ -37,7 +41,7 @@ export const Navigation = () => {
   return (
     <LoginNavbar>
       <Link className="brand-name" to="/">
-        How To
+        <img className="logo" src={logo}></img>
       </Link>
       <ul>
         <li>

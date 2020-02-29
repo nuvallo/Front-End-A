@@ -27,6 +27,8 @@ function App() {
         <ProtectedRoute exact path="/protected" component={Home} />
         <Route exact path="/" component={LoginPage} />
         <Route path="/signup" component={Signup} />
+        {/* Test to redirect to home from login (ignore until auth is setup) */}
+        <Route path="/render-home" component={Home} />
       </Switch>
     </Div>
   );

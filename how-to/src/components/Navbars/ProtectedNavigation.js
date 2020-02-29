@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import logo from "../../Images/how-to_logo.png";
 
 // Styles
 const Navbar = styled.nav`
@@ -8,11 +9,14 @@ const Navbar = styled.nav`
   background: ${props => props.theme.primaryColor};
 
   .brand-name {
-    padding: 1%;
     text-decoration: none;
     font-size: 30px;
     color: ${props => props.theme.secondaryColor};
     width: 100%;
+    margin-top: 1%;
+    .logo {
+      max-width: 80px;
+    }
   }
 
   ul {
@@ -36,12 +40,12 @@ const Navbar = styled.nav`
 export const ProtectedNavbar = () => {
   return (
     <Navbar>
-      <Link className="brand-name" to="/">
-        How To
+      <Link className="brand-name" to="/protected">
+        <img className="logo" src={logo}></img>
       </Link>
       <ul>
         <li>
-          <Link to="/home">Home</Link>
+          <Link to="/protected">Home</Link>
         </li>
         <li>
           <Link to="/">Logout</Link>
