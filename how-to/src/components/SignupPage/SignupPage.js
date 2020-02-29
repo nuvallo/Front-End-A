@@ -51,13 +51,12 @@ export const Signup = props => {
     e.preventDefault();
     e.preventDefault();
     axiosWithAuth()
-      .post("/api/users/signup", cred)
+      .post("https://how-too.herokuapp.com/api/users/register", cred)
       .then(res => {
-        localStorage.setItem("token", res.data.payload);
-        props.history.push("/protected");
+        console.log(res);
+        props.history.push("/login");
       })
       .catch(err => {
-        localStorage.removeItem("token");
         console.log("invalid signup ", err);
       });
   };

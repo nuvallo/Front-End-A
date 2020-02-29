@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { axiosWithAuth } from "../../utils/axiosWithAuth";
 import { Navigation as Navbar } from "../Navbars/Navigation";
@@ -52,7 +51,7 @@ export const LoginPage = props => {
         props.history.push("/protected");
       })
       .catch(err => {
-        console.log("invalid login ", err);
+        alert("Login Incorrect");
       });
   };
   return (
@@ -79,8 +78,6 @@ export const LoginPage = props => {
         </div>
 
         <button>Login</button>
-        {/* <Link to="/render-home">Login</Link> */}
-        {/* This LINK is a test (ignore until auth is setup) */}
       </LoginForm>
     </div>
   );

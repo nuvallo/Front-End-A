@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Route, Switch } from "react-router-dom";
 import { LoginPage } from "./components/LoginPage/LoginPage";
 import { Signup } from "./components/SignupPage/SignupPage";
@@ -13,22 +13,12 @@ const Div = styled.div`
 `;
 
 function App() {
-  const axiosReq = () => {
-    // Testing Backend API (ignore)
-    axios
-      .get("https://how-too.herokuapp.com")
-      .then(res => console.log(res.data));
-  };
-
   return (
     <Div className="App">
-      {axiosReq()}
       <Switch>
         <ProtectedRoute exact path="/protected" component={Home} />
         <Route exact path="/" component={LoginPage} />
         <Route path="/signup" component={Signup} />
-        {/* Test to redirect to home from login (ignore until auth is setup) */}
-        <Route path="/render-home" component={Home} />
       </Switch>
     </Div>
   );
