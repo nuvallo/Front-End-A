@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 // Styles
-const LoginNavbar = styled.nav`
+const Navbar = styled.nav`
   display: flex;
   background: ${props => props.theme.primaryColor};
 
@@ -33,9 +33,9 @@ const LoginNavbar = styled.nav`
   }
 `;
 
-export const LoginNavigation = () => {
+export const ProtectedNavbar = () => {
   return (
-    <LoginNavbar>
+    <Navbar>
       <Link className="brand-name" to="/">
         How To
       </Link>
@@ -44,9 +44,9 @@ export const LoginNavigation = () => {
           <Link to="/home">Home</Link>
         </li>
         <li>
-          <Link to="/home">Login</Link>
+          <Link to="/">Logout</Link>
         </li>
       </ul>
-    </LoginNavbar>
+    </Navbar>
   );
 };

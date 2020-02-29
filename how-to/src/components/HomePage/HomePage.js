@@ -1,11 +1,11 @@
 import React from "react";
-import { HomeNavigation } from "./HomeNavigation";
+import { ProtectedNavbar } from "../Navbars/ProtectedNavigation";
 import SearchBar from "./SearchBar";
 
 export const HomePage = () => {
   return (
     <div>
-      <HomeNavigation />
+      <ProtectedNavbar />
       <SearchBar />
     </div>
   );

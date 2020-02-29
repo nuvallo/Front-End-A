@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 // Styles
-const HomeNavbar = styled.nav`
+const LoginNavbar = styled.nav`
   display: flex;
   background: ${props => props.theme.primaryColor};
 
@@ -33,20 +33,20 @@ const HomeNavbar = styled.nav`
   }
 `;
 
-export const HomeNavigation = () => {
+export const Navigation = () => {
   return (
-    <HomeNavbar>
+    <LoginNavbar>
       <Link className="brand-name" to="/">
         How To
       </Link>
       <ul>
         <li>
-          <Link to="/home">Home</Link>
+          <Link to="/">Login</Link>
         </li>
         <li>
-          <Link to="/">Logout</Link>
+          <Link to="/signup">Signup</Link>
         </li>
       </ul>
-    </HomeNavbar>
+    </LoginNavbar>
   );
 };

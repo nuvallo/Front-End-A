@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { axiosWithAuth } from "../../utils/axiosWithAuth";
 import { Navigation as Navbar } from "../Navbars/Navigation";
 
-const LoginForm = styled.form`
+const SignupForm = styled.form`
   background-color: ${props => props.theme.primaryColor};
   width: 40%;
   margin: 15% auto;
@@ -32,10 +32,14 @@ const LoginForm = styled.form`
   }
 `;
 
-export const LoginPage = props => {
+export const Signup = props => {
   const [cred, setCred] = useState({
+    name: "",
+    email: "",
     username: "",
-    password: ""
+    password: "",
+    location: "",
+    user_type: ""
   });
 
   // Handlers
@@ -47,20 +51,33 @@ export const LoginPage = props => {
     e.preventDefault();
     e.preventDefault();
     axiosWithAuth()
-      .post("/api/users/login", cred)
+      .post("/api/users/signup", cred)
       .then(res => {
         localStorage.setItem("token", res.data.payload);
         props.history.push("/protected");
       })
       .catch(err => {
         localStorage.removeItem("token");
-        console.log("invalid login ", err);
+        console.log("invalid signup ", err);
       });
   };
   return (
     <div>
       <Navbar />
-      <LoginForm onSubmit={submit}>
+      <SignupForm onSubmit={submit}>
+        <div>
+          <label htmlFor="name">Name</label>
+          <input type="text" id="name" name="name" onChange={handleChanges} />
+        </div>
+        <div>
+          <label htmlFor="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            onChange={handleChanges}
+          />
+        </div>
         <div>
           <label htmlFor="username">Username</label>
           <input
@@ -79,9 +96,18 @@ export const LoginPage = props => {
             onChange={handleChanges}
           />
         </div>
+        <div>
+          <label htmlFor="location">Location</label>
+          <input
+            type="text"
+            id="location"
+            name="location"
+            onChange={handleChanges}
+          />
+        </div>
 
-        <button>Login</button>
-      </LoginForm>
+        <button>Signup</button>
+      </SignupForm>
     </div>
   );
 };
