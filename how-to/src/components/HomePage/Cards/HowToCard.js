@@ -1,7 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 
+// Styles
 const Card = styled.div`
+  /* Main Card Styles */
   background: ${props => props.theme.primaryColor};
   text-align: center;
   color: ${props => props.theme.fontColorLight};
@@ -9,6 +11,7 @@ const Card = styled.div`
   padding: 20px;
   margin: 5%;
 
+  /* Elements */
   h3 {
     margin: 5%;
   }
@@ -26,7 +29,6 @@ export const HowToCard = ({ data }) => {
     <Card>
       <h3>{data.title}</h3>
       <p>{data.steps}</p>
-      <button>Add</button>
       <button>Edit</button>
       <button>Delete</button>
     </Card>

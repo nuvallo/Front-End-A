@@ -4,7 +4,9 @@ import styled from "styled-components";
 import { axiosWithAuth } from "../../utils/axiosWithAuth";
 import { Navigation as Navbar } from "../Navbars/Navigation";
 
+// Styles
 const LoginForm = styled.form`
+  /* Main Form Styles */
   background-color: ${props => props.theme.primaryColor};
   width: 40%;
   margin: 20% auto;
@@ -12,6 +14,7 @@ const LoginForm = styled.form`
   border-radius: 15px;
   padding-top: 1%;
 
+  /* All Classes */
   .register-link {
     color: ${props => props.theme.fontColorLight};
     text-decoration: none;
@@ -21,6 +24,8 @@ const LoginForm = styled.form`
     color: ${props => props.theme.error};
     display: block;
   }
+
+  /* All Elements */
 
   h1 {
     color: ${props => props.theme.fontColorLight};
@@ -49,6 +54,7 @@ const LoginForm = styled.form`
 `;
 
 export const LoginPage = props => {
+  // State
   const [cred, setCred] = useState({
     username: "",
     password: ""
@@ -74,6 +80,7 @@ export const LoginPage = props => {
         setError("Invalid login, please try again");
       });
   };
+
   return (
     <div>
       <Navbar />

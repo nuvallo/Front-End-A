@@ -4,7 +4,9 @@ import styled from "styled-components";
 import { axiosWithAuth } from "../../utils/axiosWithAuth";
 import { Navigation as Navbar } from "../Navbars/Navigation";
 
+// Styles
 const SignupForm = styled.form`
+  /* Main Form Styles */
   background-color: ${props => props.theme.primaryColor};
   width: 40%;
   margin: 20% auto;
@@ -12,6 +14,7 @@ const SignupForm = styled.form`
   border-radius: 15px;
   padding-top: 1%;
 
+  /* All Classes */
   .register-link {
     color: ${props => props.theme.fontColorLight};
     text-decoration: none;
@@ -22,6 +25,7 @@ const SignupForm = styled.form`
     display: block;
   }
 
+  /* All Elements */
   h1 {
     color: ${props => props.theme.fontColorLight};
   }
@@ -50,6 +54,7 @@ const SignupForm = styled.form`
 `;
 
 export const Signup = props => {
+  // State
   const [cred, setCred] = useState({
     name: "",
     email: "",

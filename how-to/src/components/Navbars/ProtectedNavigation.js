@@ -8,6 +8,7 @@ const Navbar = styled.nav`
   display: flex;
   background: ${props => props.theme.primaryColor};
 
+  /* Classes */
   .brand-name {
     text-decoration: none;
     font-size: 30px;
@@ -19,6 +20,7 @@ const Navbar = styled.nav`
     }
   }
 
+  /* Elements */
   ul {
     display: flex;
     justify-content: flex-end;
