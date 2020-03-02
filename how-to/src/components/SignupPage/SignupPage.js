@@ -39,7 +39,7 @@ export const Signup = props => {
     username: "",
     password: "",
     location: "",
-    user_type: ""
+    user_type: Date.now()
   });
 
   // Handlers
@@ -53,8 +53,8 @@ export const Signup = props => {
     axiosWithAuth()
       .post("https://how-too.herokuapp.com/api/users/register", cred)
       .then(res => {
-        console.log(res);
-        props.history.push("/login");
+        setCred(res);
+        props.history.push("/");
       })
       .catch(err => {
         console.log("invalid signup ", err);

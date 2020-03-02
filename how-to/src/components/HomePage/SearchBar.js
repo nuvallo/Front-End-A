@@ -11,6 +11,7 @@ const SearchForm = styled.form`
   button {
     padding: 5px;
     background: ${props => props.theme.secondaryColor};
+    color: ${props => props.theme.fontColorLight};
   }
 `;
 

@@ -48,6 +48,7 @@ export const LoginPage = props => {
     axiosWithAuth()
       .post("https://how-too.herokuapp.com/api/users/login", cred)
       .then(res => {
+        localStorage.setItem("token", res.data.payload);
         props.history.push("/protected");
       })
       .catch(err => {
