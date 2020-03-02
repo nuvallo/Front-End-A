@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { axiosWithAuth } from "../../utils/axiosWithAuth";
 import { Navigation as Navbar } from "../Navbars/Navigation";
@@ -6,9 +7,24 @@ import { Navigation as Navbar } from "../Navbars/Navigation";
 const SignupForm = styled.form`
   background-color: ${props => props.theme.primaryColor};
   width: 40%;
-  margin: 15% auto;
+  margin: 20% auto;
   text-align: center;
   border-radius: 15px;
+  padding-top: 1%;
+
+  .register-link {
+    color: ${props => props.theme.fontColorLight};
+    text-decoration: none;
+  }
+
+  .error-message {
+    color: ${props => props.theme.error};
+    display: block;
+  }
+
+  h1 {
+    color: ${props => props.theme.fontColorLight};
+  }
 
   button {
     padding: 10px;
@@ -28,6 +44,7 @@ const SignupForm = styled.form`
     input {
       padding: 1%;
       border-radius: 5px;
+      width: 50%;
     }
   }
 `;
@@ -41,6 +58,8 @@ export const Signup = props => {
     location: "",
     user_type: Date.now()
   });
+
+  const [error, setError] = useState("");
 
   // Handlers
   const handleChanges = e => {
@@ -57,13 +76,15 @@ export const Signup = props => {
         props.history.push("/");
       })
       .catch(err => {
-        console.log("invalid signup ", err);
+        console.log(err);
+        setError("Enter Required Field(s)");
       });
   };
   return (
     <div>
       <Navbar />
       <SignupForm onSubmit={submit}>
+        <h1>Signup</h1>
         <div>
           <label htmlFor="name">Name</label>
           <input type="text" id="name" name="name" onChange={handleChanges} />
@@ -106,6 +127,12 @@ export const Signup = props => {
         </div>
 
         <button>Signup</button>
+        <div>
+          <span className="error-message">{error}</span>
+          <Link className="register-link" to="/">
+            Aleady a user? Login here
+          </Link>
+        </div>
       </SignupForm>
     </div>
   );

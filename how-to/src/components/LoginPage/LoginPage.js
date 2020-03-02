@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { axiosWithAuth } from "../../utils/axiosWithAuth";
 import { Navigation as Navbar } from "../Navbars/Navigation";
@@ -6,9 +7,24 @@ import { Navigation as Navbar } from "../Navbars/Navigation";
 const LoginForm = styled.form`
   background-color: ${props => props.theme.primaryColor};
   width: 40%;
-  margin: 15% auto;
+  margin: 20% auto;
   text-align: center;
   border-radius: 15px;
+  padding-top: 1%;
+
+  .register-link {
+    color: ${props => props.theme.fontColorLight};
+    text-decoration: none;
+  }
+
+  .error-message {
+    color: ${props => props.theme.error};
+    display: block;
+  }
+
+  h1 {
+    color: ${props => props.theme.fontColorLight};
+  }
 
   button {
     padding: 10px;
@@ -38,6 +54,8 @@ export const LoginPage = props => {
     password: ""
   });
 
+  const [error, setError] = useState("");
+
   // Handlers
   const handleChanges = e => {
     setCred({ ...cred, [e.target.name]: e.target.value });
@@ -52,13 +70,15 @@ export const LoginPage = props => {
         props.history.push("/protected");
       })
       .catch(err => {
-        alert("Login Incorrect");
+        console.log(err);
+        setError("Invalid login, please try again");
       });
   };
   return (
     <div>
       <Navbar />
       <LoginForm onSubmit={submit}>
+        <h1>Login</h1>
         <div>
           <label htmlFor="username">Username</label>
           <input
@@ -79,6 +99,12 @@ export const LoginPage = props => {
         </div>
 
         <button>Login</button>
+        <div>
+          <span className="error-message">{error}</span>
+          <Link className="register-link" to="/signup">
+            Not a user? Register here
+          </Link>
+        </div>
       </LoginForm>
     </div>
   );

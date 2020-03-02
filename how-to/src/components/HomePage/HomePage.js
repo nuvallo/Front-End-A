@@ -8,7 +8,9 @@ export const HomePage = () => {
     <div>
       <ProtectedNavbar />
       <SearchBar />
-      <HowToList />
+      <div>
+        <HowToList />
+      </div>
     </div>
   );
 };
