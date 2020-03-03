@@ -26,7 +26,7 @@ const SearchBar = () => {
         <input type="text" placeholder="Search Guides..." />
         <button>Search</button>
         {/* Eventually will link to add card form */}
-        <button>Add New How-To</button>
+        <button>Add New Guide</button>
       </SearchForm>
     </>
   );

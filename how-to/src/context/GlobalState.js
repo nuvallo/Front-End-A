@@ -8,6 +8,26 @@ const initialState = {
       title: "Simple Survival",
       steps: "1. Eat Food 2. Drink Water 3. Clean Yourself 4. Repeat",
       user_id: Date.now()
+    },
+    {
+      title: "Simple Survival",
+      steps: "1. Eat Food 2. Drink Water 3. Clean Yourself 4. Repeat",
+      user_id: Date.now()
+    },
+    {
+      title: "Simple Survival",
+      steps: "1. Eat Food 2. Drink Water 3. Clean Yourself 4. Repeat",
+      user_id: Date.now()
+    },
+    {
+      title: "Simple Survival",
+      steps: "1. Eat Food 2. Drink Water 3. Clean Yourself 4. Repeat",
+      user_id: Date.now()
+    },
+    {
+      title: "Simple Survival",
+      steps: "1. Eat Food 2. Drink Water 3. Clean Yourself 4. Repeat",
+      user_id: Date.now()
     }
   ]
 };

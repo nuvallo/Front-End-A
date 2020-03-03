@@ -8,8 +8,8 @@ const Card = styled.div`
   text-align: center;
   color: ${props => props.theme.fontColorLight};
   width: 250px;
-  padding: 20px;
-  margin: 5%;
+  padding: 25px;
+  margin: 2%;
 
   /* Elements */
   h3 {

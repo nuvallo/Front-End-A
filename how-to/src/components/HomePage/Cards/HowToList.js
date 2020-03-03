@@ -5,10 +5,10 @@ import { GlobalContext } from "../../../context/GlobalState";
 export const HowToList = () => {
   const { howTo } = useContext(GlobalContext);
   return (
-    <div>
-      {howTo.map(how => {
-        return <HowToCard data={how} />;
+    <>
+      {howTo.map(guide => {
+        return <HowToCard data={guide} />;
       })}
-    </div>
+    </>
   );
 };
